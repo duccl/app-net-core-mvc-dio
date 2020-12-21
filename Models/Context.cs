@@ -8,7 +8,7 @@ namespace app_net_core.Models
         public DbSet<Categoria> Categorias{ get; set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql($"{System.Environment.GetEnvironmentVariable("POSTGRES_LOCAL")}");
+            optionsBuilder.UseNpgsql(connectionString:$"{System.Environment.GetEnvironmentVariable("POSTGRES_LOCAL",System.EnvironmentVariableTarget.Machine)}");
         }
     }
 }
