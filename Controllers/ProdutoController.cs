@@ -47,7 +47,7 @@ namespace app_net_core.Controllers
         // GET: Produto/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Id");
+            ViewData["CategoriaDescricao"] = new SelectList(_context.Categorias, "Id", "Descricao");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace app_net_core.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Id", produto.CategoriaId);
+            ViewData["CategoriaDescricao"] = new SelectList(_context.Categorias, "Id", "Descricao", produto.CategoriaId);
             return View(produto);
         }
 
@@ -81,7 +81,7 @@ namespace app_net_core.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Id", produto.CategoriaId);
+            ViewData["CategoriaDescricao"] = new SelectList(_context.Categorias, "Id", "Descricao", produto.CategoriaId);
             return View(produto);
         }
 
@@ -117,7 +117,7 @@ namespace app_net_core.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Id", produto.CategoriaId);
+            ViewData["CategoriaDescricao"] = new SelectList(_context.Categorias, "Id", "Descricao", produto.CategoriaId);
             return View(produto);
         }
 
